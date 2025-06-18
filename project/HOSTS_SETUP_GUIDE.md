@@ -2,7 +2,7 @@
 
 ## Windows
 
-### Method 1: Using Notepad as Administrator
+### Method 1: Using Notepad as Administrator sdfsd
 1. **Press `Windows + R`** to open Run dialog
 2. **Type `notepad`** and press `Ctrl + Shift + Enter` (this opens Notepad as Administrator)
 3. **Click "Yes"** when prompted by User Account Control
