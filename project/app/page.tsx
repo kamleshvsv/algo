@@ -138,9 +138,9 @@ export default function Home() {
               {[
                 { q: 'Will I get lifetime updates?', a: 'Yes, all future updates will be available to existing customers.' },
                 { q: 'Can I use this for a client’s product?', a: 'Absolutely, you can use it for any commercial project.' },
-                { q: 'Does Landify provide code kit as well?', a: 'Landify offers both Figma UI kit and code kit.' },
+                { q: 'Does Algobean provide code kit as well?', a: 'Algobean offers both Figma UI kit and code kit.' },
                 { q: 'Do you have a free trial?', a: 'Yes, we provide a 7-day free trial with no credit card required.' },
-                { q: 'Who can use Landify?', a: 'Anyone from freelancers to agencies.' },
+                { q: 'Who can use Algobean?', a: 'Anyone from freelancers to agencies.' },
               ].map((item, idx) => (
                 <AccordionItem key={idx} value={`faq-${idx}`}>
                   <AccordionTrigger className="flex justify-between">{item.q}</AccordionTrigger>
@@ -155,8 +155,8 @@ export default function Home() {
         <footer className="bg-gray-900 text-white py-12">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-bold text-xl mb-2">Landify</h3>
-              <p className="text-sm text-gray-400">© 2025 Landify. All rights reserved.</p>
+              <h3 className="font-bold text-xl mb-2">Algobean</h3>
+              <p className="text-sm text-gray-400">© 2025 Algobean. All rights reserved.</p>
             </div>
             <div className="flex space-x-6 justify-center">
               <ul className="space-y-1 text-gray-300">
