@@ -1,4 +1,4 @@
-// File: /home/kamlesh/Documents/project-bolt-sb1-bukn9q63 (3)/project/app/page.tsx
+// File: D:\algo\project\app\page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

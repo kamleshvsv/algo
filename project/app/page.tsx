@@ -1,283 +1,181 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  ArrowRight, 
-  Zap, 
-  Shield, 
-  Globe, 
-  Users, 
-  BarChart3, 
-  Sparkles,
-  CheckCircle,
-  Star
-} from 'lucide-react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import banner from "./../assets/vecteezy_smart-home-concept-with-automation-control-network_14000940.jpg"
+import banner1 from "./../assets/vecteezy_startup-business-people-group-at-office_12446141.jpg"
 
-export default function HomePage() {
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from '@/components/ui/accordion'
+import { Badge } from '@/components/ui/badge'
+import { getTenantConfig } from '@/lib/tenant-config'
+import TenantLayout from '@/components/tenant-layout'
+import Image from 'next/image'
+
+export default function Home() {
+  const config = getTenantConfig('main')
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                TenantHub
-              </span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-slate-600 hover:text-slate-900 transition-colors">Features</a>
-              <a href="#pricing" className="text-slate-600 hover:text-slate-900 transition-colors">Pricing</a>
-              <a href="#about" className="text-slate-600 hover:text-slate-900 transition-colors">About</a>
-              <Button variant="outline" className="hover:bg-slate-50">Sign In</Button>
-              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <Badge className="mb-8 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 border-purple-200">
-            🚀 Multi-Tenant SaaS Platform
-          </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-slate-900 via-purple-800 to-blue-800 bg-clip-text text-transparent leading-tight">
-            Scale Your Business
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-              Across Multiple Tenants
-            </span>
-          </h1>
-          <p className="text-xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Build, deploy, and manage multiple customer instances from a single platform. 
-            Perfect for SaaS businesses looking to scale efficiently while maintaining complete isolation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg px-8 py-4 h-auto">
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-4 h-auto hover:bg-slate-50">
-              Watch Demo
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900">
-              Everything you need to scale
-            </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Built-in features that make multi-tenant management effortless
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Globe className="w-8 h-8" />,
-                title: "Multi-Domain Support",
-                description: "Custom domains and subdomains for each tenant with automatic SSL certificates"
-              },
-              {
-                icon: <Shield className="w-8 h-8" />,
-                title: "Complete Isolation",
-                description: "Data and user isolation between tenants with enterprise-grade security"
-              },
-              {
-                icon: <Users className="w-8 h-8" />,
-                title: "User Management",
-                description: "Advanced user roles, permissions, and invitation systems per tenant"
-              },
-              {
-                icon: <BarChart3 className="w-8 h-8" />,
-                title: "Analytics Dashboard",
-                description: "Real-time insights and metrics for each tenant with customizable reports"
-              },
-              {
-                icon: <Zap className="w-8 h-8" />,
-                title: "Lightning Fast",
-                description: "Optimized performance with caching and CDN integration"
-              },
-              {
-                icon: <Sparkles className="w-8 h-8" />,
-                title: "White Label Ready",
-                description: "Fully customizable branding and themes for each tenant"
-              }
-            ].map((feature, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-slate-200/50 bg-white/70 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <div className="text-purple-600">
-                      {feature.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-slate-900">{feature.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900">
-              Simple, transparent pricing
-            </h2>
-            <p className="text-xl text-slate-600">
-              Choose the plan that's right for your business
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                name: "Starter",
-                price: "$29",
-                description: "Perfect for small teams getting started",
-                features: ["Up to 5 tenants", "Custom domains", "Basic analytics", "Email support"],
-                popular: false
-              },
-              {
-                name: "Professional",
-                price: "$99",
-                description: "Everything you need to scale your business",
-                features: ["Unlimited tenants", "Advanced analytics", "Priority support", "White labeling", "API access"],
-                popular: true
-              },
-              {
-                name: "Enterprise",
-                price: "Custom",
-                description: "For large organizations with specific needs",
-                features: ["Custom deployment", "Dedicated support", "SLA guarantee", "Advanced security", "Custom integrations"],
-                popular: false
-              }
-            ].map((plan, index) => (
-              <Card key={index} className={`relative hover:shadow-xl transition-all duration-300 ${plan.popular ? 'ring-2 ring-purple-500 scale-105' : ''} bg-white/70 backdrop-blur-sm`}>
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-                      <Star className="w-3 h-3 mr-1" />
-                      Most Popular
-                    </Badge>
-                  </div>
-                )}
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-2 text-slate-900">{plan.name}</h3>
-                  <div className="mb-4">
-                    <span className="text-4xl font-bold text-slate-900">{plan.price}</span>
-                    {plan.price !== "Custom" && <span className="text-slate-600">/month</span>}
-                  </div>
-                  <p className="text-slate-600 mb-6">{plan.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-slate-600">
-                        <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    className={`w-full ${plan.popular 
-                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' 
-                      : 'bg-slate-900 hover:bg-slate-800'
-                    }`}
-                  >
-                    {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6 text-white">
-            Ready to scale your SaaS business?
-          </h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of companies using TenantHub to manage their multi-tenant applications efficiently.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-slate-50 text-lg px-8 py-4 h-auto">
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-4 h-auto">
-              Schedule Demo
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold text-white">TenantHub</span>
-              </div>
-              <p className="text-sm">
-                The complete multi-tenant SaaS platform for modern businesses.
+    <TenantLayout config={config}>
+      <main className="bg-white relative">
+        
+        {/* Hero Section */}
+        <section className="relative overflow-hidden">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-50 to-white" />
+          <div className="relative z-10 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center pt-20 pb-16 px-6 lg:px-8">
+            {/* Text */}
+            <div className="md:w-1/2 space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                Academy of Your Business
+              </h1>
+              <p className="text-gray-700 sm:text-lg">
+                Organizes work so teams know what to do, why it matters, and how to get it done.
               </p>
+              <div className="flex space-x-4">
+                <Button size="lg">Get Started</Button>
+                <Button variant="outline" size="lg">View Demo</Button>
+              </div>
+              <div className="flex items-center space-x-3 pt-4">
+                <Badge className="bg-black text-white">6k Clients</Badge>
+                <span className="text-gray-600">40% Market</span>
+              </div>
             </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Product</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Support</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Community</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Status</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
-              </ul>
+            {/* Image and decorative shape */}
+            <div className="md:w-1/2 mb-10 md:mb-0 flex justify-center">
+              <div className="relative">
+                <div className="absolute top-[-20px] right-[-20px] w-32 h-32 bg-black rounded-tl-full rounded-bl-full rotate-45 z-20" />
+                <div className="absolute bottom-[-10px] left-[-10px] w-20 h-20 bg-green-300 rounded-full z-20" />
+                <Image
+                  src={banner1}
+                  alt="Hero"
+                  className="relative rounded-xl shadow-2xl"
+                />
+              </div>
             </div>
           </div>
-          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm">
-            <p>&copy; 2024 TenantHub. All rights reserved.</p>
+        </section>
+
+        {/* Process Section */}
+        <section className="py-20">
+          <div className="max-w-5xl mx-auto text-center px-6">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">The process we follow</h2>
+            <p className="text-gray-600 mb-12">As an academy of business, we go through the development cycle.</p>
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-8 sm:space-y-0">
+              {[
+                { iconBg: 'bg-green-200', title: 'Business idea', desc: 'What you want your business to be.' },
+                { iconBg: 'bg-yellow-200', title: 'Planning', desc: 'A business plan helps formalize your idea.' },
+                { iconBg: 'bg-pink-200', title: 'Develop', desc: 'Ideation, prototyping, costing.' },
+                { iconBg: 'bg-gray-600', title: 'Business structure', desc: 'Key parts of your bussiness.ss' },
+              ].map((step, i) => (
+                <div key={i} className="flex-1 text-center p-6 bg-gray-100 ml-1 mr-1 rounded-xl">
+                  <div className={`${step.iconBg} w-12 h-12 rounded-full mx-auto flex items-center justify-center mb-4`}/>
+                  <h3 className="font-semibold mb-1">{step.title}</h3>
+                  <p className="text-sm text-gray-600">{step.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </footer>
-    </div>
-  );
+        </section>
+
+        {/* Our Story Section */}
+        <section className="py-20 bg-black text-white">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center px-6 lg:px-8 space-y-8 lg:space-y-0">
+            <Image
+              src={banner}
+              alt="Our Story"
+              className="w-full lg:w-1/2 rounded-xl border-2 border-yellow-400 shadow-lg"
+            />
+            <div className="lg:w-1/2 ml-2 p-10">
+              <h2 className="text-3xl font-bold mb-4">Our Story</h2>
+              <p className="mb-6">We specialise in organising professional training courses and have been doing it since 1994.</p>
+              <Button variant="outline" className="border-white text-white">Get Started</Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-4">Services we provide</h2>
+            <p className="text-center text-gray-600 mb-12">We specialize in organising professional training courses.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { title: 'Accounting and Analysis', color: 'bg-yellow-50' },
+                { title: 'Finance and Banking', color: 'bg-green-50' },
+                { title: 'Strategic Business Leader', color: 'bg-pink-50' },
+                { title: 'Preparatory Course', color: 'bg-red-50' },
+                { title: 'Business English Writing Skills', color: 'bg-blue-50' },
+                { title: 'Strategic Business Reporting', color: 'bg-emerald-50' },
+              ].map((svc, i) => (
+                <Card key={i} className={`${svc.color} p-6 relative overflow-visible`}>                  
+                  <CardContent>
+                    <CardTitle className="mb-4 text-lg font-semibold">{svc.title}</CardTitle>
+                    <Button variant="link" className="text-sm">Get Started →</Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <h2 className="text-3xl font-bold mb-4 text-center">Frequently Asked Questions</h2>
+            <p className="text-center text-gray-600 mb-8">If you have any further questions please contact us.</p>
+            <Accordion type="multiple">
+              {[
+                { q: 'Will I get lifetime updates?', a: 'Yes, all future updates will be available to existing customers.' },
+                { q: 'Can I use this for a client’s product?', a: 'Absolutely, you can use it for any commercial project.' },
+                { q: 'Does Landify provide code kit as well?', a: 'Landify offers both Figma UI kit and code kit.' },
+                { q: 'Do you have a free trial?', a: 'Yes, we provide a 7-day free trial with no credit card required.' },
+                { q: 'Who can use Landify?', a: 'Anyone from freelancers to agencies.' },
+              ].map((item, idx) => (
+                <AccordionItem key={idx} value={`faq-${idx}`}>
+                  <AccordionTrigger className="flex justify-between">{item.q}</AccordionTrigger>
+                  <AccordionContent>{item.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
+        {/* Footer Section */}
+        <footer className="bg-gray-900 text-white py-12">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="font-bold text-xl mb-2">Landify</h3>
+              <p className="text-sm text-gray-400">© 2025 Landify. All rights reserved.</p>
+            </div>
+            <div className="flex space-x-6 justify-center">
+              <ul className="space-y-1 text-gray-300">
+                <li className="hover:underline">Services</li>
+                <li className="hover:underline">Product</li>
+                <li className="hover:underline">Resources</li>
+                <li className="hover:underline">Pricing</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2">Subscribe to our newsletter!</h4>
+              <div className="flex space-x-2">
+                <Input placeholder="Your email" className="w-full text-black" />
+                <Button>Subscribe</Button>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </TenantLayout>
+  )
 }
