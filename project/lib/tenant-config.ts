@@ -11,13 +11,13 @@ export interface TenantConfig {
 
 export const tenantConfigs: Record<string, TenantConfig> = {
   main: {
-    name: 'Multi-Tenant Platform',
+    name: 'Algobean',
     domain: 'localhost:3000',
     primaryColor: 'bg-blue-600',
     secondaryColor: 'bg-blue-100',
     logo: '🏢',
     subdomain: 'main',
-    description: 'Your comprehensive multi-tenant solution',
+    description: 'Algobean is a technology consultancy and SaaS platform provider, specializing in architecting scalable multi‑tenant applications, delivering real‑time analytics, custom reporting, and tenant‑centric solutions to help businesses grow efficiently',
     features: ['Tenant Management', 'Scalable Architecture', 'Security First', 'Analytics Dashboard'],
   routes: [
       { label: 'Dashboard', path: '/'         },
@@ -26,12 +26,12 @@ export const tenantConfigs: Record<string, TenantConfig> = {
     ],
   },
   tenant1: {
-    name: 'Tenant One',
-    domain: 'tenant1.localhost:3000',
+    name: 'Super GP',
+    domain: 'supergp.localhost:3000',
     primaryColor: 'bg-green-600',
     secondaryColor: 'bg-green-100',
     logo: '🌟',
-    subdomain : "tenant1",
+    subdomain : "supergp",
     description: 'Specialized solutions for your business needs',
     features: ['Custom Dashboard', 'Advanced Analytics', 'Team Collaboration', 'API Integration'],
     routes: [

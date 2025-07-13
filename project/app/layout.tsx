@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Multi-Tenant Platform',
-  description: 'A comprehensive multi-tenant application built with Next.js',
+  title: 'Algobean',
+  description: 'Algobean is a technology consultancy and SaaS platform provider, specializing in architecting scalable multi‑tenant applications, delivering real‑time analytics, custom reporting, and tenant‑centric solutions to help businesses grow efficiently',
 };
 
 export default function RootLayout({
