@@ -26,12 +26,12 @@ export const tenantConfigs: Record<string, TenantConfig> = {
     ],
   },
   tenant1: {
-    name: 'Super GP',
-    domain: 'supergp.localhost:3000',
+    name: 'Tenant One',
+    domain: 'tenant1.localhost:3000',
     primaryColor: 'bg-green-600',
     secondaryColor: 'bg-green-100',
     logo: '🌟',
-    subdomain : "supergp",
+    subdomain : "tenant1",
     description: 'Specialized solutions for your business needs',
     features: ['Custom Dashboard', 'Advanced Analytics', 'Team Collaboration', 'API Integration'],
     routes: [
