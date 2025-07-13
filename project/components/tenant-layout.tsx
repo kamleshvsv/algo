@@ -77,7 +77,7 @@ export default function TenantLayout({ children, config }: TenantLayoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <p>&copy; 2025 {config.name}. All rights reserved.</p>
-            <p className="text-gray-400">Domain: {config.domain}</p>
+            {/* <p className="text-gray-400">Domain: {config.domain}</p> */}
           </div>
         </div>
       </footer>
